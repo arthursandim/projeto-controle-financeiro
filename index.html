@@ -10,7 +10,8 @@
 <body>
     <header></header>
     <main>
-        <div class="card-total" data-cy="card-totalizador-valor">
+
+        <div id="card-totais" data-cy="card-totalizadores-valores">
             <table border="1">
                 <thead>
                     <tr>
@@ -42,8 +43,32 @@
                 </tbody>
             </table>
         </div>
+
+        <div id="totalizador" data-cy="totalizador-final">
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td>Minhas contas totais</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Transferir para Claudiane</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="categorias">
+
+        </div>
+
+        <button id="botao-criar-categoria">Criar categoria</button>
+
     </main>
     <footer></footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
