@@ -13,7 +13,9 @@ function criarCategoria() {
 
 
     const tabela = document.createElement('table');
-    tabela.setAttribute('border', '1')
+    tabela.setAttribute('border', '1');
+    tabela.id = `tabela-${proximoNumero}`;
+
     const thead = document.createElement('thead');
     const trHead = document.createElement('tr');
 
@@ -23,31 +25,40 @@ function criarCategoria() {
 
 
     trHead.appendChild(thNome);
-   
+
     thead.appendChild(trHead);
 
     // Criar TBODY com uma linha exemplo
     const tbody = document.createElement('tbody');
-    const trBody = document.createElement('tr');
 
-    const tdNome = document.createElement('td');
-    tdNome.textContent = 'Exemplo';
-
-    const tdValor = document.createElement('td');
-    tdValor.textContent = 'R$ 0,00';
-
-    trBody.appendChild(tdNome);
-    trBody.appendChild(tdValor);
-    tbody.appendChild(trBody);
-
-    // Juntar tudo na tabela
     tabela.appendChild(thead);
     tabela.appendChild(tbody);
 
+    const botaoCriarConta = document.createElement('button');
+    botaoCriarConta.textContent = 'Criar conta';
+    botaoCriarConta.addEventListener('click', () => criarLinhaConta(tabela.id));
+
     //tabela.textContent = `Categoria`;
     categoria.appendChild(tabela);
-
+    categoria.appendChild(botaoCriarConta);
     divCategorias.appendChild(categoria);
 
 
+}
+
+function criarLinhaConta(idTabela) {
+    const tabela = document.getElementById(idTabela);
+    const tbody = tabela.querySelector('tbody');
+
+    const tr = document.createElement('tr');
+
+    const tdNome = document.createElement('td');
+    tdNome.textContent = prompt('Digite o nome da despesa: ');
+
+    const tdValor = document.createElement('td');
+    tdValor.textContent = prompt('Digite o valor da despesa: ');
+
+    tr.appendChild(tdNome);
+    tr.appendChild(tdValor);
+    tbody.appendChild(tr);
 }
