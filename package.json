@@ -1,0 +1,23 @@
+{
+  "name": "projeto-controle-financeiro",
+  "version": "1.0.0",
+  "description": "Projeto pessoal de uma aplicação web que faz o controle financeiro do usuário com base em contas e categorias.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthursandim/projeto-controle-financeiro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arthursandim/projeto-controle-financeiro/issues"
+  },
+  "homepage": "https://github.com/arthursandim/projeto-controle-financeiro#readme",
+  "devDependencies": {
+    "vite": "^7.0.2"
+  }
+}
