@@ -10,59 +10,63 @@
 
 <body>
     <header>
-        <button id="botao-criar-categoria">Criar categoria</button>
+        <button id="botao-criar-categoria" class="botao-criar-categoria" data-cy="botao-criar-categoria">Criar
+            categoria</button>
     </header>
-    <main>
+    <main class="secao-principal">
 
-        <section id="card-totais" data-cy="card-totalizadores-valores">
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Totais</th>
-                        <th>Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Despesas/Contas</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Meus Cartões</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Claudiane me deve (Meus Cartões + aluguel)</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Cartões Claudiane (eu pago)</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Despesas fixas pagas pela Claudiane</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <div class="totalizadores">
+            <section id="card-totais" class="totais__valores" data-cy="card-totalizadores-valores">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Totais</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Despesas/Contas</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Meus Cartões</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Claudiane me deve (Meus Cartões + aluguel)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Cartões Claudiane (eu pago)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Despesas fixas pagas pela Claudiane</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-        <section id="totalizador" data-cy="totalizador-final">
-            <table border="1">
-                <tbody>
-                    <tr>
-                        <td>Minhas contas totais</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Transferir para Claudiane</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+            <section id="totais__final" class="totais__final" data-cy="totalizador-final">
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <td>Minhas contas totais</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Transferir para Claudiane</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
 
-        <div id="categorias"></div>
+
+        <div id="categorias" class="categorias" data-cy="categorias"></div>
 
     </main>
     <footer></footer>
