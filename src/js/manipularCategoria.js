@@ -13,7 +13,6 @@ function criarCategoria() {
 
 
     const tabela = document.createElement('table');
-    tabela.setAttribute('border', '1');
     tabela.setAttribute('data-cy', `card-despesa-${categoria.id}`)
     tabela.id = `tabela-despesa-${categoria.id}`;
 
