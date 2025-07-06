@@ -35,13 +35,13 @@ function criarCategoria() {
     tabela.appendChild(thead);
     tabela.appendChild(tbody);
 
-    const botaoCriarConta = document.createElement('button');
-    botaoCriarConta.textContent = 'Criar conta';
-    botaoCriarConta.addEventListener('click', () => criarLinhaConta(tabela.id));
+    const botaoAdicionarDespesa = document.createElement('button');
+    botaoAdicionarDespesa.textContent = 'Adicionar despesa';
+    botaoAdicionarDespesa.addEventListener('click', () => criarLinhaConta(tabela.id));
 
     //tabela.textContent = `Categoria`;
     categoria.appendChild(tabela);
-    categoria.appendChild(botaoCriarConta);
+    categoria.appendChild(botaoAdicionarDespesa);
     divCategorias.appendChild(categoria);
 
 
