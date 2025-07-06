@@ -4,12 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/css/style.css">
     <title>Controle financeiro</title>
 </head>
 
 <body>
     <header>
+
+        <h1>Controle financeiro</h1>
         <button id="botao-criar-categoria" class="botao-criar-categoria" data-cy="botao-criar-categoria">Criar
             categoria</button>
     </header>
@@ -17,7 +24,7 @@
 
         <div class="totalizadores">
             <section id="card-totais" class="totais__valores" data-cy="card-totalizadores-valores">
-                <table border="1">
+                <table>
                     <thead>
                         <tr>
                             <th>Totais</th>
@@ -50,7 +57,7 @@
             </section>
 
             <section id="totais__final" class="totais__final" data-cy="totalizador-final">
-                <table border="1">
+                <table>
                     <tbody>
                         <tr>
                             <td>Minhas contas totais</td>
