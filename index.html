@@ -18,10 +18,10 @@
 
         <h1>Controle financeiro</h1>
         <h2>Julho/2025</h2>
-        <button id="botao-criar-categoria" class="" data-cy="botao-criar-categoria">Criar
+        <button id="botao-criar-categoria" class="btn btn-primary" data-cy="botao-criar-categoria">Criar
             categoria</button>
-        <button>Editar categoria</button>
-        <button>Excluir categoria</button>
+        <button class="btn btn-warning">Editar categoria</button>
+        <button class="btn btn-danger">Excluir categoria</button>
     </header>
     <main class="secao-principal">
 
@@ -31,22 +31,21 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Minhas contas totais</th>
+                            <th scope="col" colspan="2">Minhas contas totais</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td></td>
                             <td></td>
-                        </tr>
-                        
+                        </tr>   
                     </tbody>
                 </table>
             </section>
         </div>
 
 
-        <div id="categorias" class="categorias" data-cy="categorias"></div>
+        <div id="categorias" class="card-deck" data-cy="categorias"></div>
 
     </main>
     <footer></footer>

@@ -8,7 +8,7 @@ function criarCategoria() {
 
     const categoria = document.createElement('div');
     categoria.id = `categoria-${proximoNumero}`;
-    categoria.className = `categoria-estilo-${proximoNumero}`;
+    categoria.className = "card";
     categoria.setAttribute('data-cy', `card-categoria-${proximoNumero}`);
 
 
@@ -36,6 +36,7 @@ function criarCategoria() {
 
     const botaoAdicionarDespesa = document.createElement('button');
     botaoAdicionarDespesa.textContent = 'Adicionar despesa';
+    botaoAdicionarDespesa.className = 'btn btn-success wid'
     botaoAdicionarDespesa.addEventListener('click', () => criarLinhaConta(tabela.id));
 
     //tabela.textContent = `Categoria`;
