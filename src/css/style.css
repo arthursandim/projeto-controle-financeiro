@@ -9,3 +9,13 @@
     align-items: flex-start;
     flex-direction: column;
 }
+
+.totais {
+    position: relative;
+    top:10px;
+    left: 10px;
+    border: 100px;
+    width: 300px;
+    margin: 10px;
+    padding: 0x;
+}
