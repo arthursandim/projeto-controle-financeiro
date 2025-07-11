@@ -14,33 +14,37 @@
     <header>
 
         <h1 class="titulo">Controle financeiro</h1>
-        <h2 id="mes-atual">Julho/2025</h2>
-        <button id="botao-criar-categoria" class="botao" data-cy="botao-criar-categoria">Criar
-            categoria</button>
-        <button class="botao">Editar categoria</button>
-        <button class="botao">Excluir categoria</button>
+        <h2 class="mes-atual">Julho/2025</h2>
+
+        <div class="botoes-categoria">
+            <button class="botao" data-cy="botao-criar-categoria">Criar
+                categoria</button>
+            <!-- <button class="botao">Editar categoria</button> -->
+            <button class="botao">Excluir categoria</button>
+        </div>
+
     </header>
-    <main class="secao-principal">
+    <main class="principal">
 
-        <div id="totais" data-cy="totalizadores">
+        <div class="totais">
 
-            <section id="totais__final" class="totais" data-cy="totalizador-final">
-                <table class="table">
+            <section class="totais__finais">
+                <table class="tabela">
                     <thead>
                         <tr>
-                            <th class="border-table" scope="col" colspan="2">Minhas contas totais</th>
+                            <th class="tabela__celula" scope="col" colspan="2">Minhas contas totais</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="border-table"></td>
-                            <td class="border-table"></td>
+                            <td class="tabela__celula"></td>
+                            <td class="tabela__celula"></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="border-table">Total final</td>
-                            <td class="border-table">200</td>
+                            <td class="tabela__celula">Total final</td>
+                            <td class="tabela__celula">200</td>
                         </tr>
 
                     </tfoot>
@@ -49,12 +53,12 @@
         </div>
 
 
-        <div id="categorias" class="categorias" data-cy="categorias"></div>
+        <div class="categorias"></div>
 
     </main>
     <footer></footer>
 
-    <script type="module" src="src/js/manipularCategoria.js"></script>
+    <script type="module" src="src/js/manipularCategoriaOld.js"></script>
 </body>
 
 </html>
