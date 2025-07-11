@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="src/css/style.css">
     <title>Controle financeiro</title>
 </head>
@@ -11,34 +16,34 @@
 <body>
     <header>
 
-        <h1>Controle financeiro</h1>
-        <h2>Julho/2025</h2>
-        <button id="botao-criar-categoria" class="btn btn-primary" data-cy="botao-criar-categoria">Criar
+        <h1 class="titulo">Controle financeiro</h1>
+        <h2 id="mes-atual">Julho/2025</h2>
+        <button id="botao-criar-categoria" class="botao" data-cy="botao-criar-categoria">Criar
             categoria</button>
-        <button class="btn btn-warning">Editar categoria</button>
-        <button class="btn btn-danger">Excluir categoria</button>
+        <button class="botao">Editar categoria</button>
+        <button class="botao">Excluir categoria</button>
     </header>
     <main class="secao-principal">
 
-        <div id="totais" class="totais table-responsive-sm" data-cy="totalizadores">
+        <div id="totais" data-cy="totalizadores">
 
-            <section id="totais__final" class="totais__final" data-cy="totalizador-final">
-                <table class="table table-bordered">
+            <section id="totais__final" class="totais" data-cy="totalizador-final">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col" colspan="2">Minhas contas totais</th>
+                            <th class="border-table" scope="col" colspan="2">Minhas contas totais</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td class="border-table"></td>
+                            <td class="border-table"></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td>Total final</td>
-                            <td>200</td>
+                            <td class="border-table">Total final</td>
+                            <td class="border-table">200</td>
                         </tr>
 
                     </tfoot>
@@ -47,7 +52,7 @@
         </div>
 
 
-        <div id="categorias" class="card-deck" data-cy="categorias"></div>
+        <div id="categorias" class="categorias" data-cy="categorias"></div>
 
     </main>
     <footer></footer>
