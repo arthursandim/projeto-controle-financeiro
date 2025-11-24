@@ -1,0 +1,52 @@
+.categoria-card {
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.categoria-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.categoria-card-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  flex-grow: 1;
+}
+
+.categoria-icone {
+  font-size: 2rem;
+  margin-left: 0.5rem;
+}
+
+.categoria-descricao {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.categoria-card-footer {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.categoria-card-footer button {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
