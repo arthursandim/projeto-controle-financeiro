@@ -1,0 +1,13 @@
+{
+  "name": "controle-gastos",
+  "version": "1.0.0",
+  "description": "Sistema de Controle de Gastos - Full Stack",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:tests": "cd testes-automatizados && npm run test:open",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ../testes-automatizados && npm install"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,18 @@
+{
+  "name": "controle-gastos-testes-automatizados",
+  "version": "1.0.0",
+  "description": "Testes automatizados E2E com Cypress - Sistema de Controle de Gastos",
+  "scripts": {
+    "test:open": "cypress open",
+    "test:run": "cypress run",
+    "test:fastRun": "cypress run --env grepTags=fastRun",
+    "test:integration": "cypress run --env grepTags=integration"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cypress/grep": "^5.0.0",
+    "@faker-js/faker": "^10.0.0",
+    "cypress": "^15.3.0",
+    "dotenv": "^16.3.1"
+  }
+}
