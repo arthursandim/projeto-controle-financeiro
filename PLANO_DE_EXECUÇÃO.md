@@ -59,21 +59,21 @@
 
 ### **Fase 1: Infraestrutura (Dias 1-2)**
 
-#### Dia 1: Setup e Configuração
+#### Dia 1: Setup e Configuração ✅
 **Tarefas:**
 - [x] Cypress já instalado
 - [x] Instalar: `@cypress/grep`, `@faker-js/faker`, `dotenv`
 - [x] Criar `.env` com `baseUrl=http://localhost:5173` e `baseApiUrl=http://localhost:3000/api`
 - [x] Criar `cypress.env.json` (vazio, sem dados sensíveis neste projeto)
 - [x] Atualizar `cypress.config.js`:
-  - Definir `baseUrl` e `baseApiUrl`
-  - Integrar plugin `@cypress/grep`
-  - Adicionar retries (1-2 tentativas em modo headless)
+  - [x] Definir `baseUrl` e `baseApiUrl`
+  - [x] Integrar plugin `@cypress/grep`
+  - [x] Adicionar retries (1-2 tentativas em modo headless)
 - [x] Criar primeiro teste dummy: "Home carrega"
 
-**Resultado:** Cypress pronto com variáveis de ambiente e plugin de tags configurados.
+**Resultado:** ✅ Cypress pronto com variáveis de ambiente e plugin de tags configurados.
 
-#### Dia 2: Estrutura de Pastas e Camadas
+#### Dia 2: Estrutura de Pastas e Camadas ✅
 **Tarefas:**
 - [x] Criar estrutura base:
   ```
@@ -87,7 +87,7 @@
   │   ├── Commands/
   │   │   ├── Categoria/ (index.js, Api_commands.js, UI_commands.js, Assertions_commands.js)
   │   │   ├── Conta/ (index.js, Api_commands.js, UI_commands.js, Assertions_commands.js)
-  │   │   └── Utils/ (UIHelpers.js)
+  │   │   └── Utils/ (UIHelpers.js, ResetDatabase_commands.js)
   │   ├── models/ (Categoria.js, Conta.js)
   │   ├── adapters/ (CategoriaAdapter.js, ContaAdapter.js)
   │   ├── library/ (CategoriaLib.js, ContaLib.js)
@@ -95,56 +95,55 @@
   ├── cypress.config.js
   └── plugins/
   ```
-- [x] Criar `cypress/support/commands.js` vazio (será preenchido com imports dos comandos)
+- [x] Criar `cypress/support/commands.js` com imports dos comandos
 - [x] Criar `CONTRIBUTING.md` com convenções:
-  - Nomenclatura (Api_commands, Assertions_commands, etc)
-  - Padrão de estrutura de comandos
-  - Guia de uso de Models, Adapters, Libraries
-  - Padrão de commit/branch
+  - [x] Nomenclatura (Api_commands, Assertions_commands, etc)
+  - [x] Padrão de estrutura de comandos
+  - [x] Guia de uso de Models, Adapters, Libraries
+  - [x] Padrão de commit/branch
 
-**Resultado:** Estrutura de pastas criada, pronta para implementação de testes.
+**Resultado:** ✅ Estrutura de pastas criada, pronta para implementação de testes.
 
 ---
 
 ### **Fase 2: Camadas de Suporte (Dias 3-4)**
 
-#### Dia 3: Modelos, Adapters e Libraries
+#### Dia 3: Modelos, Adapters e Libraries ✅
 **Tarefas:**
-- [ ] Criar `cypress/support/models/Categoria.js`:
-  - Classe ES6 com constructor e propriedades
-  - Validações básicas (nome não vazio, cor válida)
-  - Getter/Setter se necessário
+- [x] Criar `cypress/support/models/Categoria.js`:
+  - [x] Classe ES6 com constructor e propriedades
+  - [x] Validações básicas (nome não vazio, cor válida)
+  - [x] Métodos de validação
 
-- [ ] Criar `cypress/support/adapters/CategoriaAdapter.js`:
-  - `static adapterToPOST(categoria)` - Converte para formato POST
-  - `static adapterToPUT(categoria)` - Converte para formato PUT
-  - Validação opcional de schema
+- [x] Criar `cypress/support/adapters/CategoriaAdapter.js`:
+  - [x] `static adapterToPOST(categoria)` - Converte para formato POST
+  - [x] `static adapterToPUT(categoria)` - Converte para formato PUT
 
-- [ ] Criar `cypress/support/library/CategoriaLib.js`:
-  - `makeAFakeCategoria()` - Gera categoria random com faker
-  - `makeAFakeCategoriaArray(qty)` - Gera array de categorias
+- [x] Criar `cypress/support/library/CategoriaLib.js`:
+  - [x] `makeAFakeCategoria()` - Gera categoria random com faker
+  - [x] `makeAFakeCategoriaArray(qty)` - Gera array de categorias
 
-- [ ] Criar `cypress/support/models/Conta.js` (similar a Categoria)
-- [ ] Criar `cypress/support/adapters/ContaAdapter.js`
-- [ ] Criar `cypress/support/library/ContaLib.js`
+- [x] Criar `cypress/support/models/Conta.js` (similar a Categoria)
+- [x] Criar `cypress/support/adapters/ContaAdapter.js`
+- [x] Criar `cypress/support/library/ContaLib.js`
 
-**Resultado:** Camada de modelos e factories pronta para uso nos testes.
+**Resultado:** ✅ Camada de modelos e factories pronta para uso nos testes. Todos testados e validados.
 
-#### Dia 4: Comandos Customizados - Camada API
+#### Dia 4: Comandos Customizados - Camada API 🚀 (EM PROGRESSO)
 **Tarefas:**
 - [ ] Criar `cypress/support/Commands/Categoria/Api_commands.js`:
-  - `cy.categoriaApi_Create(categoria)` - POST /api/categorias
-  - `cy.categoriaApi_GetAll()` - GET /api/categorias
-  - `cy.categoriaApi_GetById(id)` - GET /api/categorias/:id
-  - `cy.categoriaApi_Update(id, categoria)` - PUT /api/categorias/:id
-  - `cy.categoriaApi_Delete(id)` - DELETE /api/categorias/:id
+  - [ ] `cy.categoriaApi_Create(categoria)` - POST /api/categorias
+  - [ ] `cy.categoriaApi_GetAll()` - GET /api/categorias
+  - [ ] `cy.categoriaApi_GetById(id)` - GET /api/categorias/:id
+  - [ ] `cy.categoriaApi_Update(id, categoria)` - PUT /api/categorias/:id
+  - [ ] `cy.categoriaApi_Delete(id)` - DELETE /api/categorias/:id
 
 - [ ] Criar `cypress/support/Commands/Categoria/Assertions_commands.js`:
-  - `cy.categoriaShouldExist(nome)` - Valida se existe
-  - `cy.categoriaShouldHaveColor(nome, cor)` - Valida cor
+  - [ ] `cy.categoriaShouldExist(nome)` - Valida se existe
+  - [ ] `cy.categoriaShouldHaveColor(nome, cor)` - Valida cor
 
 - [ ] Criar `cypress/support/Commands/Categoria/index.js`:
-  - Imports dos arquivos acima
+  - [ ] Imports dos arquivos acima
 
 - [ ] Repetir para `Commands/Conta/` (Api_commands.js, Assertions_commands.js, index.js)
 
@@ -155,6 +154,30 @@
   ```
 
 **Resultado:** Comandos API prontos e reutilizáveis para todos os testes.
+
+---
+
+## 🔄 Extra: Limpeza do Banco de Dados para Testes Atômicos ✅
+
+### Implementação concluída:
+**Backend:**
+- [x] `backend/src/services/resetService.js` - Serviço que limpa tabelas
+- [x] `backend/src/controllers/resetController.js` - Controlador do endpoint
+- [x] `backend/src/routes/resetRoutes.js` - Rota DELETE /api/reset
+- [x] `backend/src/app.js` - Registro da rota com proteção NODE_ENV
+
+**Cypress:**
+- [x] `cypress/support/Commands/Utils/ResetDatabase_commands.js` - Comando cy.resetDatabase()
+- [x] `cypress/support/commands.js` - Importação do comando
+- [x] `cypress/support/e2e.js` - beforeEach hook para limpeza automática
+
+**Benefícios:**
+- ✅ Testes atômicos - Cada teste começa com banco limpo
+- ✅ Isolados - Testes não interferem um com outro
+- ✅ Determinísticos - Mesma entrada = mesmo resultado
+- ✅ Seguros - Apenas em NODE_ENV !== 'production'
+
+**Commit:** d496ce5 - feat: Implementar limpeza de banco de dados para testes atômicos
 
 ---
 
