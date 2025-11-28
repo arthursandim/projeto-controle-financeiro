@@ -5,6 +5,10 @@ describe('🧪 Validação de Comandos API - Conta', () => {
   let categoriaId;
 
   beforeEach(() => {
+    // Limpar banco de dados antes de cada teste
+    cy.resetDatabase();
+
+    // Criar categoria para os testes de Conta
     const categoria = CategoriaLib.makeAFakeCategoria();
     cy.categoriaApi_Create(categoria).then((response) => {
       categoriaId = response.body.dados.id;

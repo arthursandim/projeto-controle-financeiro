@@ -1,6 +1,10 @@
 import CategoriaLib from '../../support/library/CategoriaLib.js';
 
 describe('🧪 Validação de Comandos API - Categoria', () => {
+  beforeEach(() => {
+    cy.resetDatabase();
+  });
+
   it('@fastRun - Deve criar categoria via API command', () => {
     const categoria = CategoriaLib.makeAFakeCategoria();
 
