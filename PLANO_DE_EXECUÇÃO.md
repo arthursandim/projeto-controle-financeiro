@@ -129,31 +129,43 @@
 
 **Resultado:** ✅ Camada de modelos e factories pronta para uso nos testes. Todos testados e validados.
 
-#### Dia 4: Comandos Customizados - Camada API 🚀 (EM PROGRESSO)
+#### Dia 4: Comandos Customizados - Camada API ✅
 **Tarefas:**
-- [ ] Criar `cypress/support/Commands/Categoria/Api_commands.js`:
-  - [ ] `cy.categoriaApi_Create(categoria)` - POST /api/categorias
-  - [ ] `cy.categoriaApi_GetAll()` - GET /api/categorias
-  - [ ] `cy.categoriaApi_GetById(id)` - GET /api/categorias/:id
-  - [ ] `cy.categoriaApi_Update(id, categoria)` - PUT /api/categorias/:id
-  - [ ] `cy.categoriaApi_Delete(id)` - DELETE /api/categorias/:id
+- [x] Criar `cypress/support/Commands/Categoria/Api_commands.js`:
+  - [x] `cy.categoriaApi_Create(categoria)` - POST /api/categorias
+  - [x] `cy.categoriaApi_GetAll()` - GET /api/categorias
+  - [x] `cy.categoriaApi_GetById(id)` - GET /api/categorias/:id
+  - [x] `cy.categoriaApi_Update(id, categoria)` - PUT /api/categorias/:id
+  - [x] `cy.categoriaApi_Delete(id)` - DELETE /api/categorias/:id
 
-- [ ] Criar `cypress/support/Commands/Categoria/Assertions_commands.js`:
-  - [ ] `cy.categoriaShouldExist(nome)` - Valida se existe
-  - [ ] `cy.categoriaShouldHaveColor(nome, cor)` - Valida cor
+- [x] Criar `cypress/support/Commands/Categoria/Assertions_commands.js`:
+  - [x] `cy.categoriaShouldExist(nome)` - Valida se existe
+  - [x] `cy.categoriaShouldHaveColor(nome, cor)` - Valida cor
 
-- [ ] Criar `cypress/support/Commands/Categoria/index.js`:
-  - [ ] Imports dos arquivos acima
+- [x] Criar `cypress/support/Commands/Categoria/index.js`:
+  - [x] Imports dos arquivos acima
 
-- [ ] Repetir para `Commands/Conta/` (Api_commands.js, Assertions_commands.js, index.js)
+- [x] Repetir para `Commands/Conta/` (Api_commands.js, Assertions_commands.js, index.js)
 
-- [ ] Registrar em `cypress/support/commands.js`:
+- [x] Registrar em `cypress/support/commands.js`:
   ```javascript
   import './Commands/Categoria/index.js';
   import './Commands/Conta/index.js';
   ```
 
-**Resultado:** Comandos API prontos e reutilizáveis para todos os testes.
+- [x] Criar testes de validação dos comandos (categoria.api.commands.test.cy.js, conta.api.commands.test.cy.js)
+- [x] Corrigir estrutura de resposta (response.body.dados)
+- [x] Implementar beforeEach explícito com cy.resetDatabase()
+
+**Resultado:** ✅ Comandos API prontos e reutilizáveis. Testes de validação dos comandos passando.
+
+**Commits:**
+- bb3e215 - feat: Fase 2, Dia 4 - Criar Comandos API (Categoria e Conta)
+- af3f65c - fix: Corrigir estrutura de resposta dos testes API (response.body.dados)
+- e3997cb - fix: Adicionar beforeEach explícito para resetar banco em cada teste
+- 8bc2309 - fix: Corrigir acesso a response.body.dados nos comandos API
+- 707dc44 - fix: Corrigir uso de greaterThanOrEqual para be.at.least() no Chai
+- 45d36aa - fix: Corrigir acesso a response.body.dados nos comandos de asserção
 
 ---
 
@@ -183,35 +195,36 @@
 
 ### **Fase 3: Testes de API (Dias 5-7)**
 
-#### Dia 5: Testes de Categoria (CRUD Básico)
+#### Dia 5: Testes de Categoria (CRUD Básico) 🚀 (EM PROGRESSO)
 **Arquivo:** `cypress/e2e/Categoria/categoria.controller.cy.js`
 
 **Testes:**
-- `@fastRun - Deve listar todas as categorias` (GET)
+- [ ] `@fastRun - Deve listar todas as categorias` (GET)
   - Setup: Criar 3 categorias via API
   - Verificar: Array contém as 3 categorias
 
-- `@fastRun - Deve criar categoria com sucesso` (POST)
+- [ ] `@fastRun - Deve criar categoria com sucesso` (POST)
   - Usar `categoriaLib.makeAFakeCategoria()`
   - Adaptar com `CategoriaAdapter.adapterToPOST()`
-  - Verificar response status 200 + dados retornados
+  - Verificar response status 201 + dados retornados
 
-- Deve atualizar categoria existente (PUT)
+- [ ] Deve atualizar categoria existente (PUT)
   - Setup: Criar categoria
   - Atualizar nome
   - Verificar mudança foi persistida
 
-- Deve deletar categoria sem contas (DELETE)
+- [ ] Deve deletar categoria sem contas (DELETE)
   - Setup: Criar categoria
   - Deletar
   - Verificar 404 ao buscar
 
-- `@fastRun - Não deve deletar categoria com contas` (DELETE com erro)
+- [ ] `@fastRun - Não deve deletar categoria com contas` (DELETE com erro)
   - Setup: Criar categoria + conta vinculada
   - Tentar deletar categoria
-  - Verificar erro 400
+  - Verificar erro 400 ou 409
 
 **Tags:** `@fastRun` para CRUD básico
+**Status:** Iniciando implementação dos testes CRUD
 
 ---
 
