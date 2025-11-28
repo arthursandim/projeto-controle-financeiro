@@ -7,7 +7,7 @@ describe('🧪 Validação de Comandos API - Conta', () => {
   beforeEach(() => {
     const categoria = CategoriaLib.makeAFakeCategoria();
     cy.categoriaApi_Create(categoria).then((response) => {
-      categoriaId = response.body.id;
+      categoriaId = response.body.dados.id;
     });
   });
 
@@ -16,10 +16,11 @@ describe('🧪 Validação de Comandos API - Conta', () => {
 
     cy.contaApi_Create(conta).then((response) => {
       expect(response.status).to.equal(201);
-      expect(response.body).to.have.property('id');
-      expect(response.body.descricao).to.equal(conta.descricao);
-      expect(response.body.valor).to.equal(conta.valor);
-      expect(response.body.categoria_id).to.equal(categoriaId);
+      expect(response.body.sucesso).to.be.true;
+      expect(response.body.dados).to.have.property('id');
+      expect(response.body.dados.descricao).to.equal(conta.descricao);
+      expect(response.body.dados.valor).to.equal(conta.valor);
+      expect(response.body.dados.categoria_id).to.equal(categoriaId);
     });
   });
 
@@ -28,14 +29,14 @@ describe('🧪 Validação de Comandos API - Conta', () => {
     const conta2 = ContaLib.makeAFakeConta(categoriaId);
 
     cy.contaApi_Create(conta1).then((response1) => {
-      const id1 = response1.body.id;
+      const id1 = response1.body.dados.id;
 
       cy.contaApi_Create(conta2).then((response2) => {
         cy.contaApi_GetAll().then((response) => {
           expect(response.status).to.equal(200);
-          expect(response.body.length).to.be.greaterThanOrEqual(2);
-          expect(response.body.map((c) => c.id)).to.include(id1);
-          expect(response.body.map((c) => c.id)).to.include(response2.body.id);
+          expect(response.body.dados.length).to.be.greaterThanOrEqual(2);
+          expect(response.body.dados.map((c) => c.id)).to.include(id1);
+          expect(response.body.dados.map((c) => c.id)).to.include(response2.body.dados.id);
         });
       });
     });
@@ -45,12 +46,12 @@ describe('🧪 Validação de Comandos API - Conta', () => {
     const conta = ContaLib.makeAFakeConta(categoriaId);
 
     cy.contaApi_Create(conta).then((response) => {
-      const id = response.body.id;
+      const id = response.body.dados.id;
 
       cy.contaApi_GetById(id).then((getResponse) => {
         expect(getResponse.status).to.equal(200);
-        expect(getResponse.body.id).to.equal(id);
-        expect(getResponse.body.descricao).to.equal(conta.descricao);
+        expect(getResponse.body.dados.id).to.equal(id);
+        expect(getResponse.body.dados.descricao).to.equal(conta.descricao);
       });
     });
   });
@@ -60,12 +61,12 @@ describe('🧪 Validação de Comandos API - Conta', () => {
     const contaAtualizada = ContaLib.makeAFakeConta(categoriaId);
 
     cy.contaApi_Create(conta).then((response) => {
-      const id = response.body.id;
+      const id = response.body.dados.id;
 
       cy.contaApi_Update(id, contaAtualizada).then((updateResponse) => {
         expect(updateResponse.status).to.equal(200);
-        expect(updateResponse.body.descricao).to.equal(contaAtualizada.descricao);
-        expect(updateResponse.body.valor).to.equal(contaAtualizada.valor);
+        expect(updateResponse.body.dados.descricao).to.equal(contaAtualizada.descricao);
+        expect(updateResponse.body.dados.valor).to.equal(contaAtualizada.valor);
       });
     });
   });
@@ -74,12 +75,12 @@ describe('🧪 Validação de Comandos API - Conta', () => {
     const conta = ContaLib.makeAFakeConta(categoriaId);
 
     cy.contaApi_Create(conta).then((response) => {
-      const id = response.body.id;
+      const id = response.body.dados.id;
 
       cy.contaApi_MarkAsPaid(id).then((markResponse) => {
         expect(markResponse.status).to.equal(200);
-        expect(markResponse.body.status).to.equal('PAGA');
-        expect(markResponse.body.data_pagamento).to.exist;
+        expect(markResponse.body.dados.status).to.equal('PAGA');
+        expect(markResponse.body.dados.data_pagamento).to.exist;
       });
     });
   });
@@ -88,7 +89,7 @@ describe('🧪 Validação de Comandos API - Conta', () => {
     const conta = ContaLib.makeAFakeConta(categoriaId);
 
     cy.contaApi_Create(conta).then((response) => {
-      const id = response.body.id;
+      const id = response.body.dados.id;
 
       cy.contaApi_Delete(id).then((deleteResponse) => {
         expect(deleteResponse.status).to.equal(204);
@@ -127,8 +128,8 @@ describe('🧪 Validação de Comandos API - Conta', () => {
     cy.contaApi_Create(conta).then(() => {
       cy.contaApi_ListByFilters({ categoria_id: categoriaId }).then((response) => {
         expect(response.status).to.equal(200);
-        expect(response.body.length).to.be.greaterThanOrEqual(1);
-        expect(response.body.every((c) => c.categoria_id === categoriaId)).to.be.true;
+        expect(response.body.dados.length).to.be.greaterThanOrEqual(1);
+        expect(response.body.dados.every((c) => c.categoria_id === categoriaId)).to.be.true;
       });
     });
   });
