@@ -28,7 +28,7 @@ describe('🧪 Validação de Comandos API - Categoria', () => {
       cy.categoriaApi_Create(categoria2).then((response2) => {
         cy.categoriaApi_GetAll().then((response) => {
           expect(response.status).to.equal(200);
-          expect(response.body.dados.length).to.be.greaterThanOrEqual(2);
+          expect(response.body.dados.length).to.be.at.least(2);
           expect(response.body.dados.map((c) => c.id)).to.include(id1);
           expect(response.body.dados.map((c) => c.id)).to.include(response2.body.dados.id);
         });

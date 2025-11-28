@@ -38,7 +38,7 @@ describe('🧪 Validação de Comandos API - Conta', () => {
       cy.contaApi_Create(conta2).then((response2) => {
         cy.contaApi_GetAll().then((response) => {
           expect(response.status).to.equal(200);
-          expect(response.body.dados.length).to.be.greaterThanOrEqual(2);
+          expect(response.body.dados.length).to.be.at.least(2);
           expect(response.body.dados.map((c) => c.id)).to.include(id1);
           expect(response.body.dados.map((c) => c.id)).to.include(response2.body.dados.id);
         });
@@ -132,7 +132,7 @@ describe('🧪 Validação de Comandos API - Conta', () => {
     cy.contaApi_Create(conta).then(() => {
       cy.contaApi_ListByFilters({ categoria_id: categoriaId }).then((response) => {
         expect(response.status).to.equal(200);
-        expect(response.body.dados.length).to.be.greaterThanOrEqual(1);
+        expect(response.body.dados.length).to.be.at.least(1);
         expect(response.body.dados.every((c) => c.categoria_id === categoriaId)).to.be.true;
       });
     });
