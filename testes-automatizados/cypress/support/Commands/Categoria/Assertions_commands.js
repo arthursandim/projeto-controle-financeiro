@@ -5,7 +5,7 @@
 
 Cypress.Commands.add('categoriaShouldExist', (nome) => {
   cy.categoriaApi_GetAll().then((response) => {
-    const categoria = response.body.find((cat) => cat.nome === nome);
+    const categoria = response.body.dados.find((cat) => cat.nome === nome);
     expect(categoria).to.exist;
     cy.log(`✅ Categoria '${nome}' existe`);
     cy.wrap(categoria);

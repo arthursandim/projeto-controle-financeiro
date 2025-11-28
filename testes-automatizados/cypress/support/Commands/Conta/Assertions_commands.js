@@ -5,7 +5,7 @@
 
 Cypress.Commands.add('contaShouldExist', (descricao) => {
   cy.contaApi_GetAll().then((response) => {
-    const conta = response.body.find((c) => c.descricao === descricao);
+    const conta = response.body.dados.find((c) => c.descricao === descricao);
     expect(conta).to.exist;
     cy.log(`✅ Conta '${descricao}' existe`);
     cy.wrap(conta);
