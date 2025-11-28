@@ -397,6 +397,59 @@ O sistema implementa:
 - ✅ Mensagens de erro descritivas ao usuário
 - ✅ Logs estruturados no backend
 
+## 🧪 Testes Automatizados
+
+O projeto implementa testes E2E com **Cypress** em uma estrutura de camadas:
+
+### Estrutura de Testes
+
+```
+testes-automatizados/
+├── cypress/
+│   ├── e2e/              # Testes (CRUD, Validação, UI, Integração)
+│   │   ├── Categoria/
+│   │   ├── Conta/
+│   │   └── Integration/
+│   └── support/          # Camadas de suporte
+│       ├── Commands/     # Comandos Cypress customizados
+│       ├── models/       # Modelos de dados
+│       ├── adapters/     # Conversão para payloads API
+│       ├── library/      # Geração de dados fake (faker.js)
+│       └── services/     # Serviços auxiliares
+├── package.json          # Scripts de teste
+└── README.md             # Instruções de execução
+```
+
+### Execução de Testes
+
+```bash
+cd testes-automatizados
+
+# Modo interativo (Cypress UI)
+npm run test:open
+
+# Modo headless (todos os testes)
+npm run test:run
+
+# Apenas testes rápidos (@fastRun)
+npm run test:fastRun
+
+# Testes de integração
+npm run test:integration
+```
+
+### Status Atual (Fase 2, Día 4)
+
+- ✅ Infraestrutura: Cypress, dependências, configuração
+- ✅ Modelos e Adapters para Categoria e Conta
+- ✅ Comandos API (Create, GetAll, GetById, Update, Delete)
+- ✅ Comandos de Asserção (Validações customizadas)
+- 🚀 Testes CRUD em progresso (Fase 3)
+
+Para mais detalhes, consulte:
+- **[PLANO_DE_EXECUÇÃO.md](./PLANO_DE_EXECUÇÃO.md)** - Plano detalhado de 11 dias
+- **[testes-automatizados/README.md](./testes-automatizados/README.md)** - Como executar testes
+
 ## Próximas Melhorias
 
 - [ ] Autenticação e autorização
@@ -404,7 +457,11 @@ O sistema implementa:
 - [ ] Filtros de data mais avançados
 - [ ] Gráficos e visualizações
 - [ ] Export de dados (CSV, PDF)
-- [ ] Testes automatizados (Jest, Vitest)
+- [🚀] **Testes automatizados (Cypress E2E)** - Fase 2/Día 4 Complete
+  - Estrutura de testes em camadas (Models, Adapters, Libraries, Commands)
+  - API commands para Categoria e Conta implementados
+  - Testes CRUD em progresso
+  - Ver: [PLANO_DE_EXECUÇÃO.md](./PLANO_DE_EXECUÇÃO.md) e [testes-automatizados/README.md](./testes-automatizados/README.md)
 - [ ] Dark mode
 - [ ] Multidioma (i18n)
 - [ ] Docker para containerização

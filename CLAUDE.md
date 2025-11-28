@@ -3,13 +3,15 @@
 Quick reference guide for Claude Code when working with this repository.
 
 **Project:** Sistema de Controle de Gastos (Financial Control System)
-**Status:** ✅ Complete and Production-Ready
-**Type:** Full-stack web application (Node.js + React)
+**Status:** ✅ Backend/Frontend Complete | 🧪 Testing Phase (Fase 2, Dia 4 Complete)
+**Type:** Full-stack web application (Node.js + React + Cypress E2E Tests)
 
 ## Documentation Map
 
 - **README.md** - Complete documentation (start here)
 - **CONTRIBUTING.md** - Implementation guide and contribution patterns
+- **PLANO_DE_EXECUÇÃO.md** - Testing plan and progress (11-day Cypress E2E implementation)
+- **testes-automatizados/README.md** - How to run tests
 - **examples/** - Reference implementation files
 
 ## Architecture Overview
@@ -169,6 +171,26 @@ npm test          # Run tests
 5. **CORS** - Express needs `cors()` middleware for frontend requests
 6. **Database Sync** - Sequelize auto-creates tables on startup with `alter: true`
 7. **Hot Reload** - Nodemon (backend) and Vite (frontend) auto-reload changes
+
+## Testing Infrastructure
+
+**Cypress E2E Tests** (In Progress - Fase 2/Day 4 Complete)
+
+Test structure organized in layers:
+- **Models** - Data validation and structure
+- **Adapters** - Convert domain objects to API payloads
+- **Libraries** - Fake data generation with faker.js
+- **Commands** - Custom Cypress commands for API and UI interactions
+- **Tests** - E2E test scenarios
+
+**Current Progress:**
+- ✅ Fase 1: Infrastructure setup (Cypress, dependencies, .env)
+- ✅ Fase 2, Día 3: Models, Adapters, Libraries for Categoria and Conta
+- ✅ Fase 2, Día 4: API Commands with proper response handling
+- 🚀 Fase 3, Día 5: CRUD tests for Categoria (in progress)
+- ⏳ Fase 3-5: Remaining CRUD, validation, UI, and integration tests
+
+See **PLANO_DE_EXECUÇÃO.md** for detailed test plan and **testes-automatizados/README.md** for how to run tests.
 
 ## When Adding Features
 
