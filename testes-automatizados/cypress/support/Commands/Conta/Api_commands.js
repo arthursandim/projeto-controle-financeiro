@@ -25,7 +25,7 @@ Cypress.Commands.add('contaApi_GetAll', () => {
     url: `${Cypress.env('baseApiUrl')}/contas`,
     failOnStatusCode: false
   }).then((response) => {
-    cy.log(`✅ Contas listadas: ${response.body.length || 0} itens`);
+    cy.log(`✅ Contas listadas: ${response.body.dados?.length || 0} itens`);
     cy.wrap(response);
   });
 });
@@ -36,7 +36,7 @@ Cypress.Commands.add('contaApi_GetById', (id) => {
     url: `${Cypress.env('baseApiUrl')}/contas/${id}`,
     failOnStatusCode: false
   }).then((response) => {
-    cy.log(`✅ Conta obtida: ${response.body.descricao || 'ID ' + id}`);
+    cy.log(`✅ Conta obtida: ${response.body.dados?.descricao || 'ID ' + id}`);
     cy.wrap(response);
   });
 });
@@ -85,7 +85,7 @@ Cypress.Commands.add('contaApi_ListByFilters', (filters) => {
     url: `${Cypress.env('baseApiUrl')}/contas?${queryString}`,
     failOnStatusCode: false
   }).then((response) => {
-    cy.log(`✅ Contas filtradas: ${response.body.length || 0} itens`);
+    cy.log(`✅ Contas filtradas: ${response.body.dados?.length || 0} itens`);
     cy.wrap(response);
   });
 });

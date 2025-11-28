@@ -15,7 +15,7 @@ Cypress.Commands.add('categoriaApi_Create', (categoria) => {
     failOnStatusCode: false
   }).then((response) => {
     if (response.status === 201) {
-      cy.log(`✅ Categoria criada: ${categoria.nome} (ID: ${response.body.id})`);
+      cy.log(`✅ Categoria criada: ${categoria.nome} (ID: ${response.body.dados.id})`);
     } else {
       cy.log(`❌ Erro ao criar categoria: Status ${response.status}`);
       cy.log(`Mensagem: ${JSON.stringify(response.body)}`);
@@ -31,7 +31,7 @@ Cypress.Commands.add('categoriaApi_GetAll', () => {
     url: `${Cypress.env('baseApiUrl')}/categorias`,
     failOnStatusCode: false
   }).then((response) => {
-    cy.log(`✅ Categorias listadas: ${response.body.length || 0} itens`);
+    cy.log(`✅ Categorias listadas: ${response.body.dados.length || 0} itens`);
     cy.wrap(response);
   });
 });
@@ -42,7 +42,7 @@ Cypress.Commands.add('categoriaApi_GetById', (id) => {
     url: `${Cypress.env('baseApiUrl')}/categorias/${id}`,
     failOnStatusCode: false
   }).then((response) => {
-    cy.log(`✅ Categoria obtida: ${response.body.nome || 'ID ' + id}`);
+    cy.log(`✅ Categoria obtida: ${response.body.dados?.nome || 'ID ' + id}`);
     cy.wrap(response);
   });
 });
