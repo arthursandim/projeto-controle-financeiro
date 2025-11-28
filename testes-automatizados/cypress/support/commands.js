@@ -12,3 +12,4 @@ import './Commands/Conta/index.js';
 
 // Utils commands
 import './Commands/Utils/UIHelpers.js';
+import './Commands/Utils/ResetDatabase_commands.js';

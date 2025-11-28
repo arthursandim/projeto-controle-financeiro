@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import categoriaRoutes from './routes/categoriaRoutes.js';
 import contaRoutes from './routes/contaRoutes.js';
+import resetRoutes from './routes/resetRoutes.js';
 import errorHandler from './middlewares/errorHandler.js';
 
 const app = express();
@@ -14,6 +15,11 @@ app.use(express.urlencoded({ extended: true }));
 // Rotas
 app.use('/api/categorias', categoriaRoutes);
 app.use('/api/contas', contaRoutes);
+
+// Rota de reset (apenas em desenvolvimento)
+if (process.env.NODE_ENV !== 'production') {
+  app.use('/api', resetRoutes);
+}
 
 // Rota raiz
 app.get('/', (req, res) => {

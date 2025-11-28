@@ -15,3 +15,12 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+// ====================================================
+// ATOMIC TEST SETUP
+// ====================================================
+// Reset database before each test to ensure
+// tests are isolated and atomic
+beforeEach(() => {
+  cy.resetDatabase();
+});
