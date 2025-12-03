@@ -21,6 +21,3 @@ import './commands'
 // ====================================================
 // Reset database before each test to ensure
 // tests are isolated and atomic
-beforeEach(() => {
-  cy.resetDatabase();
-});
